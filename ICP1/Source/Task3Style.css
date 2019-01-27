@@ -1,0 +1,36 @@
+
+table {
+    width: 50%;
+    border-collapse: collapse;
+ }
+
+td {
+    width: 10%;
+   border: 2px solid black;
+
+}
+td::after {
+    content: '';
+    display: block;
+    margin-top: 70%;
+}
+
+td:first-of-type {
+    border-left: none;
+    border-top: none;
+
+}
+td:nth-of-type(2) {
+    border-top: none;
+
+}
+td:nth-of-type(3) {
+    border-right: none;
+    border-top: none;
+
+}
+
+tr:nth-of-type(3) td {
+    border-bottom: none;
+}
+
