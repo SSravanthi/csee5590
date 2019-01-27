@@ -137,6 +137,25 @@ p {
 .buttons button:hover {
   border: solid 1px #BBB;
 }
+
+.tabs{
+  display: flex;
+  flex-wrap: wrap;
+  width: 600px;
+  height: 300px;
+  /* Safari */
+  -webkit-flex-wrap: wrap; /* Safari 6.1+ */
+}
+
+.tabs img{
+  height: 45%;
+  width: 30%;
+  padding-right: 10px;
+  padding-left: 4px;
+  padding-bottom: 8px;
+
+}
+
 footer {
   position: absolute;
   width: 100vw;
@@ -173,47 +192,3 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
-
-/*.tabs{
-  width: 600px;
-  height: 300px;
-  border: 1px solid #c3c3c3;
-  display: -webkit-flex; /* Safari */
- /* -webkit-flex-flow: row-reverse wrap; /* Safari 6.1+ */
-
-
-.tabs{
-  display: flex;
-  flex-wrap: wrap;
-  width: 600px;
-  height: 300px;
-  /* Safari */
-  -webkit-flex-wrap: wrap; /* Safari 6.1+ */
-}
-
-.tabs img{
-  height: 45%;
-  width: 30%;
-  padding-right: 10px;
-  padding-left: 4px;
-  padding-bottom: 8px;
-
-}
-
-/* Common Styles */
-.content {
-  color: #fff;
-  font: 100 24px/100px sans-serif;
-  height: 150px;
-  text-align: center;
-}
-
-
-
-
-/* Flexbox Styles */
-.content {
-  display: flex;
-  flex-wrap: wrap;
-}
-
