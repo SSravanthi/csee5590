@@ -1,0 +1,528 @@
+#Index.html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MashUp</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>
+
+#app.component.html
+<div class="image">
+<app-header></app-header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+</div>
+#header.component.html
+<nav class="navbar navbar-default background">
+  <div class="container-fluid">
+    <div class="navbar-header">
+     <!-- <a routerLink="/" class="navbar-brand background">Find your Restaurant!!!</a>!-->
+    </div>
+
+    <div class="collapse navbar-collapse tx" style="text-align: center">
+      <ul style="text-align: center" class="nav navbar-nav">
+        <!--<li><a routerLink="/home">Home</a></li>!-->
+        <li style="text-align: center"><a routerLink="/search-recipe">Text Translator</a></li>
+        <!--<li routerLinkActive="active"><a routerLink="/shopping-list">Contact Us</a></li>!-->
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+#search-recipe.component.html
+<div class="parent-container">
+  <div class="child-container">
+    <h1>Hello, Welcome to <b>Text Translator!!!</b></h1>
+    <span class="desc"><i>This application translates the text using Yandex API</i></span><br><br><br>
+    <h2><b>Now type the text in below input fields to see the translated text in desired languages...</b></h2><br>
+    <form>
+      <div class="form-group">
+        <div class="form-group col-md-7 col-md-offset-2 input-group">
+             <input type="text" class="form-control" placeholder="Enter Text in English" #recipe>
+            <!--<span class="input-group-addon">-</span>
+            <input type="text" class="form-control" placeholder="Language" #place>
+            <span class="input-group-addon">-</span>!-->
+        </div><br>
+            <button type="button" class="btn btn primary col-md-3 col-md-offset-4 " style="font-size: 20px" (click)="getText()">Translate</button>
+
+      </div>
+    </form>
+  </div>
+</div><br><br>
+<div class="container">
+  <div class="row">
+
+    <!--<div class="col-lg-6">
+    <div class="panel panel-default col-6">
+      <div class="panel-heading"><b>How to make</b></div>
+      <div class="panel-body">
+        <div *ngFor="let recipe of recipeList" class="list-group-item clearfix">
+          <div class="pull-left">
+            <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
+            <a href="{{recipe.url}}" class="list-group-item-text">{{ recipe.url }}</a>
+          </div>
+
+        <span class="pull-right">
+          <img src="{{recipe.icon}}" style="width: 70px; height: 50px;" align="center"/>
+
+      </span>
+
+        </div>
+
+      </div>
+    </div>
+    </div>!-->
+
+    <div class="col-md-5 col-md-offset-3">
+      <div class="panel panel-default col-6">
+        <div class="panel-heading"><b>Selected Language is French</b></div>
+        <div class="panel-body">
+
+          <div *ngFor="let venue of venueList" class="list-group-item clearfix">
+            <div class="pull-left">
+              <h4 class="list-group-item-heading">{{ venue.name }}</h4>
+            </div>
+
+           <!-- <span class="pull-right">
+             <a href="http://maps.google.com/maps?saddr={{currentLat}},{{currentLong}}
+             &daddr={{venue.location.formattedAddress[0]}},{{venue.location.formattedAddress[1]}},{{venue.location.formattedAddress[2]}}">
+               <img src="../../assets/google.png" style="width: 30px; height: 30px;"></a>
+            </span>!-->
+
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+#app.component.css
+.image{
+  height:60em; background-size:cover; width:100%;
+  background-image:url('~images/bg.jpg');
+  background-position:50% 50%;
+}
+#app.component.spec.ts
+import { TestBed, async } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { AppComponent } from './app.component';
+
+describe('AppComponent', () => {
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule
+      ],
+      declarations: [
+        AppComponent
+      ],
+    }).compileComponents();
+  }));
+
+  it('should create the app', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app).toBeTruthy();
+  });
+
+  it(`should have as title 'MashUp'`, () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app.title).toEqual('MashUp');
+  });
+
+  it('should render title in a h1 tag', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to MashUp!');
+  });
+});
+#app.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'MashUp';
+}
+#app.module.ts
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import {HeaderComponent} from './header/header.component';
+import { HomeComponent } from './home/home.component';
+import { SearchRecipeComponent } from './search-recipe/search-recipe.component';
+import {HttpClientModule} from '@angular/common/http';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    HomeComponent,
+    SearchRecipeComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+#app.routing.module.ts
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import {HomeComponent} from './home/home.component';
+import {SearchRecipeComponent} from './search-recipe/search-recipe.component';
+
+const appRoutes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent},
+  { path: 'search-recipe', component: SearchRecipeComponent}
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(appRoutes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+#header.component.ts
+import { Component } from '@angular/core';
+
+
+@Component({
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styles: [
+    '.background {background:#000000; color: white}',
+    'li a { color: white}',
+    'ul.nav a:hover { color: #fffccc  }'
+  ]
+})
+export class HeaderComponent {
+  constructor() {}
+
+  }
+#home.component.css
+.parent-container {
+  position: relative;
+  height:100%;
+  width: 100%;
+}
+
+.child-container {
+  color: white;
+  text-align: center;
+  position: center;
+
+}
+.desc {
+  font-family: Georgia;
+  font-size: 17px;
+}
+#home.component.ts
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
+})
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { HomeComponent } from './home.component';
+
+describe('HomeComponent', () => {
+  let component: HomeComponent;
+  let fixture: ComponentFixture<HomeComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ HomeComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(HomeComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+
+export class HomeComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+#home.component.spec.ts
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { HomeComponent } from './home.component';
+
+describe('HomeComponent', () => {
+  let component: HomeComponent;
+  let fixture: ComponentFixture<HomeComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ HomeComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(HomeComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+#search-recipe.component.css
+.parent-container {
+  position: relative;
+  height:100%;
+  width: 100%;
+}
+
+.child-container {
+  color: orangered;
+  text-align: center;
+  position: center;
+
+}
+.desc {
+  font-family: Georgia;
+  font-size: 17px;
+}
+
+.thumbnail {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  transition: 0.3s;
+  min-width: 40%;
+  border-radius: 5px;
+}
+
+.thumbnail-description {
+  min-height: 40px;
+}
+
+.thumbnail:hover {
+  cursor: pointer;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 1);
+}
+#search-recipe.component.ts
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+
+@Component({
+  selector: 'app-search-recipe',
+  templateUrl: './search-recipe.component.html',
+  styleUrls: ['./search-recipe.component.css']
+})
+export class SearchRecipeComponent  {
+  @ViewChild('recipe') recipes: ElementRef;
+  @ViewChild('place') places: ElementRef;
+  textValue: any;
+
+  venueList = [];
+  constructor(private _http: HttpClient) {
+  }
+
+  getText() {
+
+
+    this.textValue = this.recipes.nativeElement.value;
+
+    if (this.textValue !== null) {
+
+      var val = this.textValue;
+
+      this._http.get(`https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20190223T200927Z.69f435cc361d770e.d25f923d8a176a706cf1dba5dd1a57049658254a&text=` + val + `&lang=en-fr&[format=plain]&[options=1]`)
+        .subscribe((data: any) => {
+          for (var i = 0; i < 1; i++) {
+            this.venueList[i] = {
+              "name": data.text
+            };
+          }
+        });
+    }
+  }
+}
+
+#search-recipe.component.spec.ts
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { SearchRecipeComponent } from './search-recipe.component';
+
+describe('SearchRecipeComponent', () => {
+  let component: SearchRecipeComponent;
+  let fixture: ComponentFixture<SearchRecipeComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ SearchRecipeComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(SearchRecipeComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+#main.ts
+import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+import { AppModule } from './app/app.module';
+import { environment } from './environments/environment';
+
+if (environment.production) {
+  enableProdMode();
+}
+
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.error(err));
+#polyfills.ts
+/**
+ * This file includes polyfills needed by Angular and is loaded before the app.
+ * You can add your own extra polyfills to this file.
+ *
+ * This file is divided into 2 sections:
+ *   1. Browser polyfills. These are applied before loading ZoneJS and are sorted by browsers.
+ *   2. Application imports. Files imported after ZoneJS that should be loaded before your main
+ *      file.
+ *
+ * The current setup is for so-called "evergreen" browsers; the last versions of browsers that
+ * automatically update themselves. This includes Safari >= 10, Chrome >= 55 (including Opera),
+ * Edge >= 13 on the desktop, and iOS 10 and Chrome on mobile.
+ *
+ * Learn more in https://angular.io/guide/browser-support
+ */
+
+/***************************************************************************************************
+ * BROWSER POLYFILLS
+ */
+
+/** IE9, IE10 and IE11 requires all of the following polyfills. **/
+// import 'core-js/es6/symbol';
+// import 'core-js/es6/object';
+// import 'core-js/es6/function';
+// import 'core-js/es6/parse-int';
+// import 'core-js/es6/parse-float';
+// import 'core-js/es6/number';
+// import 'core-js/es6/math';
+// import 'core-js/es6/string';
+// import 'core-js/es6/date';
+// import 'core-js/es6/array';
+// import 'core-js/es6/regexp';
+// import 'core-js/es6/map';
+// import 'core-js/es6/weak-map';
+// import 'core-js/es6/set';
+
+/**
+ * If the application will be indexed by Google Search, the following is required.
+ * Googlebot uses a renderer based on Chrome 41.
+ * https://developers.google.com/search/docs/guides/rendering
+ **/
+// import 'core-js/es6/array';
+
+/** IE10 and IE11 requires the following for NgClass support on SVG elements */
+// import 'classlist.js';  // Run `npm install --save classlist.js`.
+
+/** IE10 and IE11 requires the following for the Reflect API. */
+// import 'core-js/es6/reflect';
+
+/**
+ * Web Animations `@angular/platform-browser/animations`
+ * Only required if AnimationBuilder is used within the application and using IE/Edge or Safari.
+ * Standard animation support in Angular DOES NOT require any polyfills (as of Angular 6.0).
+ **/
+// import 'web-animations-js';  // Run `npm install --save web-animations-js`.
+
+/**
+ * By default, zone.js will patch all possible macroTask and DomEvents
+ * user can disable parts of macroTask/DomEvents patch by setting following flags
+ */
+
+ // (window as any).__Zone_disable_requestAnimationFrame = true; // disable patch requestAnimationFrame
+ // (window as any).__Zone_disable_on_property = true; // disable patch onProperty such as onclick
+ // (window as any).__zone_symbol__BLACK_LISTED_EVENTS = ['scroll', 'mousemove']; // disable patch specified eventNames
+
+ /*
+ * in IE/Edge developer tools, the addEventListener will also be wrapped by zone.js
+ * with the following flag, it will bypass `zone.js` patch for IE/Edge
+ */
+// (window as any).__Zone_enable_cross_context_check = true;
+
+/***************************************************************************************************
+ * Zone JS is required by default for Angular itself.
+ */
+import 'zone.js/dist/zone';  // Included with Angular CLI.
+
+
+/***************************************************************************************************
+ * APPLICATION IMPORTS
+ */
+#test.ts
+// This file is required by karma.conf.js and loads recursively all the .spec and framework files
+
+import 'zone.js/dist/zone-testing';
+import { getTestBed } from '@angular/core/testing';
+import {
+  BrowserDynamicTestingModule,
+  platformBrowserDynamicTesting
+} from '@angular/platform-browser-dynamic/testing';
+
+declare const require: any;
+
+// First, initialize the Angular testing environment.
+getTestBed().initTestEnvironment(
+  BrowserDynamicTestingModule,
+  platformBrowserDynamicTesting()
+);
+// Then we find all the tests.
+const context = require.context('./', true, /\.spec\.ts$/);
+// And load the modules.
+context.keys().map(context);
