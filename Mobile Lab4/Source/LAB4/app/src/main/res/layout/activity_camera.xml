@@ -41,6 +41,7 @@
         android:layout_marginLeft="226dp"
         android:layout_marginBottom="15dp"
         android:clickable="true"
+        android:foreground="@drawable/home"
         android:onClick="goTohome"
 
         app:backgroundTint="@color/colorWhite"
