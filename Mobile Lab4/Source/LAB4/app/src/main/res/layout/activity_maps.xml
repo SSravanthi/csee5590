@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+
+    tools:context=".MapsActivity">
+
+    <EditText
+        android:id="@+id/txtLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="13dp"
+        android:hint="Please enter the location"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtLocation"
+        android:layout_marginTop="10dp"
+        android:background="#54ff9f"
+        android:onClick="getLocationDetails"
+        android:textStyle="bold"
+        android:text="View Location Details"/>
+
+
+    <TextView
+        android:id="@+id/lblLat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnDisplay"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:text="Latitude"/>
+
+    <TextView
+        android:id="@+id/lblLatText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblLat"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/lblLng"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/btnDisplay"
+        android:layout_below="@+id/btnDisplay"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:text="Longitude"/>
+
+    <TextView
+        android:id="@+id/lblLngText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblLng"
+        android:layout_alignRight="@+id/lblLng"
+        android:textStyle="bold"
+        android:layout_marginLeft="50dp"
+        android:layout_margin="10dp" />
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_below="@+id/lblLngText"
+        android:layout_marginTop="10dp"
+        tools:context=".MapsActivity" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="226dp"
+        android:layout_marginBottom="3dp"
+        android:clickable="true"
+        android:onClick="goTohome"
+
+        android:tooltipText="Home"
+        app:backgroundTint="@color/colorWhite"
+        app:maxImageSize="30dp"
+        tools:ignore="OnClick" />
+
+
+
+</RelativeLayout>

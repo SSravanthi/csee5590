@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp"
+    android:paddingTop="16dp"
+
+    tools:context=".HomeActivity">
+
+    <GridLayout
+        android:layout_width="272dp"
+        android:layout_height="151dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="55dp"
+        android:columnCount="2"
+        android:rowCount="1">
+
+        <Button
+            android:id="@+id/btnCamera"
+            android:background="#FFA500"
+            android:onClick="camera"
+            android:text="Camera" />
+
+        <Button
+            android:id="@+id/main_btn_news"
+            android:background="@android:color/holo_blue_light"
+            android:onClick="onNewsClick"
+            android:text="News"
+            android:textColor="@color/colorAccent" />
+
+
+        <Button
+            android:id="@+id/btnMaps"
+            android:background="#00FF00"
+            android:onClick="maps"
+            android:text="Maps" />
+
+        <Button
+            android:id="@+id/main_btn_storage"
+            android:background="#FF0000"
+            android:onClick="onStorageClick"
+            android:text="storage" />
+
+        <Button
+            android:id="@+id/main_btn_record"
+            android:background="#673AB7"
+            android:onClick="onAudioClick"
+            android:text="record" />
+
+
+    </GridLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="392dp"
+        android:layout_marginLeft="130dp"
+        android:columnCount="2"
+        android:rowCount="1">
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:background="#FF0000"
+            android:onClick="logout"
+            android:text="Logout" />
+
+    </GridLayout>
+
+</RelativeLayout>

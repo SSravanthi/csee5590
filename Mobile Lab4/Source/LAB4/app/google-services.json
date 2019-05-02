@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1052006690165",
+    "firebase_url": "https://lab4-cfdb2.firebaseio.com",
+    "project_id": "lab4-cfdb2",
+    "storage_bucket": "lab4-cfdb2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1052006690165:android:d67d4ebcf292535d",
+        "android_client_info": {
+          "package_name": "com.example.lab4"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1052006690165-tligmedrtius9hetu3l4sj99fn19cm3i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7EYi_pU8e1943PHG1XrnHtFFfrNowqPo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1052006690165-tligmedrtius9hetu3l4sj99fn19cm3i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp"
+    android:paddingTop="16dp"
+
+    tools:context=".MainActivity">
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/viewlgn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="130dp"
+
+        />
+    <TextView
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:layout_marginLeft="115dp"
+        android:layout_below="@+id/viewlgn"
+        android:text="LOGIN"/>
+
+    <TextView
+        android:id="@+id/lblUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_below="@+id/login"
+        android:text="Email"/>
+
+
+    <EditText
+        android:id="@+id/txtUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblUsername" />
+
+    <TextView
+        android:id="@+id/lblUsernameError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtUsername"
+        android:textColor="@color/colorRed"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/lblPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblUsernameError"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="Password"/>
+
+    <EditText
+        android:id="@+id/txtPassword"
+        android:inputType="textPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblPassword"/>
+
+    <TextView
+        android:id="@+id/lblPasswordError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtPassword"
+        android:textColor="@color/colorRed"
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblPasswordError"
+        android:layout_centerHorizontal="true"
+        android:text="Login"
+        android:textStyle="bold"
+        android:background="#00FF00"
+        android:onClick="login"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnLogin"
+        android:layout_centerHorizontal="true"
+        android:text="Register"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:background="#ff9933"
+        android:onClick="register"/>
+
+</RelativeLayout>
