@@ -1,2 +1,2 @@
 # Sample
-This is a sample repository
+This is a web/mobile programminglab repository
